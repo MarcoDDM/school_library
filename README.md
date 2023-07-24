@@ -35,30 +35,17 @@
 
 # 📖 [your_project_name] <a name="about-project"></a>
 
-**[your_project__name]** is a...
+**School library** is a project written on ruby to add information about students and teachers.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
 
 <details>
-  <summary>Server</summary>
+<summary>Ruby</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://www.ruby.org/">PostgreSQL</a></li>
   </ul>
 </details>
 
@@ -66,9 +53,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Add student**
+- **Remove student**
+- **Add teacher**
+- **Remove teacher**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,7 +65,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://marcoalmada.online)
+N/A
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
