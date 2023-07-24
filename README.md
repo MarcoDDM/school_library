@@ -75,79 +75,44 @@ N/A
 
 To get a local copy up and running, follow these steps.
 
-### Prerequisites
-
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+### Prerequisites <a name="prerequisites"></a>
+- ✔ A professional editer such as [VS Code](https://code.visualstudio.com/download).
+- ✔ [Ruby](https://rubyinstaller.org/downloads/) installed in your machine.
+- ✔ [Git](https://git-scm.com/downloads) installed in your machine.
+- ✔ Sign in or sign up to your [Github](https://github.com/) account.
 
 ### Setup
 
-Clone this repository to your desired folder:
+To setup and install this project, follow the below steps:
+- Clone this project by the command: 
 
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
 ```
---->
+$ git clone https://github.com/MarcoDDM/decode_ruby.git
+```
+
+- Then switch to the project folder by the bellow query:
+
+```
+$ cd decode_ruby
+```
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
+coming soon
 
 ### Usage
 
-To run the project, execute the following command:
-
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
+Coming soon
 
 ### Run tests
 
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
+Coming soon
 
 ### Deployment
 
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
+Coming soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -166,9 +131,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Testing**
+- [ ] **Add basic UI**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,15 +165,6 @@ I would like to thank to my coding partners.
 
 <!-- FAQ (optional) -->
 
-## ❓ FAQ <a name="faq"></a>
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
