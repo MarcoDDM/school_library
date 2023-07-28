@@ -22,7 +22,6 @@ person = Person.new(name: 'John', age: 25)
 rental = Rental.new('2023-07-26', book1, person)
 person.add_rental(rental, book1)
 
-
 # Accessing the relationships
 puts "Students in Classroom: #{classroom.students.map(&:name)}"
 puts "Classroom label for Student 1: #{student1.classroom.label}"
