@@ -24,7 +24,7 @@ class Person
     @rentals << rental
     book.add_rental(rental)
   end
-  
+
   private
 
   def of_age?
