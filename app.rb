@@ -1,3 +1,4 @@
+# app.rb
 require_relative 'classroom'
 require_relative 'student'
 require_relative 'book'
@@ -67,51 +68,4 @@ class App
       puts 'Person not found. Please check the ID and try again.'
     end
   end
-
-  OPTIONS = {
-    1 => :list_all_books,
-    2 => :list_all_people,
-    3 => :create_person_choice,
-    4 => :create_book_choice,
-    5 => :create_rental_choice,
-    6 => :list_rentals_choice,
-    7 => :exit_app
-  }.freeze
-
-  def process_choice(choice)
-    action = OPTIONS[choice]
-
-    if action
-      send(action)
-    else
-      puts 'Invalid option. Please try again.'
-    end
-  end
-
-  def exit_app
-    puts 'Exiting the app...'
-    exit
-  end
-
-  def main
-    loop do
-      puts "\nWelcome to School Library App!"
-      puts "\nPlease choose an option by entering a number:"
-      puts '1. List all books'
-      puts '2. List all people'
-      puts '3. Create a person'
-      puts '4. Create a book'
-      puts '5. Create a rental'
-      puts '6. List all rentals for a given id'
-      puts '7. Exit'
-
-      choice = gets.chomp.to_i
-
-      process_choice(choice)
-    end
-  end
 end
-
-# Entry point to the console app
-app = App.new
-app.main
