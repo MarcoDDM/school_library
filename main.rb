@@ -26,5 +26,5 @@ person.add_rental(rental, book1)
 # Accessing the relationships
 puts "Students in Classroom: #{classroom.students.map(&:name)}"
 puts "Classroom label for Student 1: #{student1.classroom.label}"
-puts "People who rented Book 1: #{book1.rentals.map { |rental| rental.person.name }}"
-puts "Books rented by Person: #{person.rentals.map { |rental| rental.book.title }}"
+puts "People who rented Book 1: #{book1.rentals.map { |r| r.person.name }}"
+puts "Books rented by Person: #{person.rentals.map { |r| r.book.title }}"
