@@ -19,8 +19,8 @@ Book.new('Title 2', 'Author 2')
 person = Person.new(name: 'John', age: 25)
 
 # Creating a Rental between a Person and a Book
-date = "2023-07-26"
-rental = Rental.new(date, book1, person)
+date = '2023-07-26'
+Rental.new(date, book1, person)
 
 # Accessing the relationships
 puts "Students in Classroom: #{classroom.students.map(&:name)}"
