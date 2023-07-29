@@ -1,8 +1,7 @@
-# app.rb
 require_relative 'classroom'
 require_relative 'student'
+require_relative 'teacher'
 require_relative 'book'
-require_relative 'person'
 require_relative 'rental'
 
 class App
@@ -14,18 +13,35 @@ class App
   end
 
   def list_all_books
-    @books.each { |book| puts "#{book.title} by #{book.author}" }
+    if @books.empty?
+      puts 'There are no books yet.'
+    else
+      @books.each { |book| puts "#{book.title} by #{book.author}" }
+    end
   end
 
   def list_all_people
-    @people.each { |person| puts "#{person.class} - #{person.name}" }
+    if @people.empty?
+      puts 'There are no students or teachers yet.'
+    else
+      @people.each { |person| puts "#{person.class} - #{person.name}" }
+    end
   end
 
-  def create_person(role, name, age)
+  def create_person
+    puts 'Enter role (student/teacher):'
+    role = gets.chomp.downcase
+    puts 'Enter name:'
+    name = gets.chomp
+    puts 'Enter age:'
+    age = gets.chomp.to_i
+
     if role == 'student'
       person = Student.new(classroom: @classroom, name: name, age: age)
     elsif role == 'teacher'
-      person = Teacher.new(name: name, age: age)
+      puts 'Enter specialization:'
+      specialization = gets.chomp
+      person = Teacher.new(specialization: specialization, name: name, age: age)
     else
       puts "Invalid role. Please enter 'student' or 'teacher'."
       return
@@ -35,7 +51,12 @@ class App
     puts "#{role.capitalize} #{name} (#{age} years old) created successfully!"
   end
 
-  def create_book(title, author)
+  def create_book
+    puts 'Enter title:'
+    title = gets.chomp
+    puts 'Enter author:'
+    author = gets.chomp
+
     book = Book.new(title, author)
     @books << book
     puts "Book '#{title}' by #{author} added to the library!"
@@ -56,6 +77,20 @@ class App
     end
   end
 
+  def rental_from_input
+    puts 'Enter person ID:'
+    person_id = gets.chomp.to_i
+    puts 'Enter book title:'
+    book_title = gets.chomp
+    create_rental(person_id, book_title)
+  end
+
+  def list_rentals_for_person_from_input
+    puts 'Enter person ID:'
+    person_id = gets.chomp.to_i
+    list_rentals_for_person(person_id)
+  end
+
   def list_rentals_for_person(person_id)
     person = @people.find { |p| p.id == person_id }
 
@@ -67,5 +102,10 @@ class App
     else
       puts 'Person not found. Please check the ID and try again.'
     end
+  end
+
+  def exit_app
+    puts 'Exiting the app...'
+    true
   end
 end

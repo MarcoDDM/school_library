@@ -1,56 +1,47 @@
 # main.rb
 require_relative 'app'
 
+def print_menu
+  puts "\nWelcome to School Library App!"
+  puts "\nPlease choose an option by entering a number:"
+  puts '1. List all books'
+  puts '2. List all people'
+  puts '3. Create a person'
+  puts '4. Create a book'
+  puts '5. Create a rental'
+  puts '6. List all rentals for a given id'
+  puts '7. Exit'
+end
+
+def process_choice(app, choice)
+  dispatch_table = {
+    1 => :list_all_books,
+    2 => :list_all_people,
+    3 => :create_person,
+    4 => :create_book,
+    5 => :rental_from_input,
+    6 => :list_rentals_for_person_from_input,
+    7 => :exit_app
+  }
+
+  if dispatch_table.key?(choice)
+    method_name = dispatch_table[choice]
+    app.send(method_name)
+  else
+    puts 'Invalid option. Please try again.'
+  end
+end
+
 def main
   app = App.new
 
   loop do
-    puts "\nWelcome to School Library App!"
-    puts "\nPlease choose an option by entering a number:"
-    puts '1. List all books'
-    puts '2. List all people'
-    puts '3. Create a person'
-    puts '4. Create a book'
-    puts '5. Create a rental'
-    puts '6. List all rentals for a given id'
-    puts '7. Exit'
-
+    print_menu
     choice = gets.chomp.to_i
 
-    case choice
-    when 1
-      app.list_all_books
-    when 2
-      app.list_all_people
-    when 3
-      puts 'Enter role (student/teacher):'
-      role = gets.chomp.downcase
-      puts 'Enter name:'
-      name = gets.chomp
-      puts 'Enter age:'
-      age = gets.chomp.to_i
-      app.create_person(role, name, age)
-    when 4
-      puts 'Enter title:'
-      title = gets.chomp
-      puts 'Enter author:'
-      author = gets.chomp
-      app.create_book(title, author)
-    when 5
-      puts 'Enter person ID:'
-      person_id = gets.chomp.to_i
-      puts 'Enter book title:'
-      book_title = gets.chomp
-      app.create_rental(person_id, book_title)
-    when 6
-      puts 'Enter person ID:'
-      person_id = gets.chomp.to_i
-      app.list_rentals_for_person(person_id)
-    when 7
-      puts 'Exiting the app...'
+    if process_choice(app, choice) == :exit_app
+      app.exit_app # Call exit_app method to print the exit message
       break
-    else
-      puts 'Invalid option. Please try again.'
     end
   end
 end
