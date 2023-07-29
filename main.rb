@@ -1,29 +1,49 @@
-require_relative 'classroom'
-require_relative 'student'
-require_relative 'book'
-require_relative 'person'
-require_relative 'rental'
+# main.rb
+require_relative 'app'
 
-# Creating instances of Classroom and Student
-classroom = Classroom.new('Math Class')
-student1 = Student.new(classroom: classroom, name: 'Alice', age: 20)
-student2 = Student.new(classroom: classroom, name: 'Bob', age: 19)
+def print_menu
+  puts "\nWelcome to School Library App!"
+  puts "\nPlease choose an option by entering a number:"
+  puts '1. List all books'
+  puts '2. List all people'
+  puts '3. Create a person'
+  puts '4. Create a book'
+  puts '5. Create a rental'
+  puts '6. List all rentals for a given id'
+  puts '7. Exit'
+end
 
-# Adding students to the classroom
-classroom.add_student(student1)
-classroom.add_student(student2)
+def process_choice(app, choice)
+  dispatch_table = {
+    1 => :list_all_books,
+    2 => :list_all_people,
+    3 => :create_person,
+    4 => :create_book,
+    5 => :rental_from_input,
+    6 => :list_rentals_for_person_from_input,
+    7 => :exit_app
+  }
 
-# Creating instances of Book and Person
-book1 = Book.new('Title 1', 'Author 1')
-Book.new('Title 2', 'Author 2')
-person = Person.new(name: 'John', age: 25)
+  if dispatch_table.key?(choice)
+    method_name = dispatch_table[choice]
+    app.send(method_name)
+  else
+    puts 'Invalid option. Please try again.'
+  end
+end
 
-# Creating a Rental between a Person and a Book
-date = '2023-07-26'
-Rental.new(date, book1, person)
+def main
+  app = App.new
 
-# Accessing the relationships
-puts "Students in Classroom: #{classroom.students.map(&:name)}"
-puts "Classroom label for Student 1: #{student1.classroom.label}"
-puts "People who rented Book 1: #{book1.rentals.map { |r| r.person.name }}"
-puts "Books rented by Person: #{person.rentals.map { |r| r.book.title }}"
+  loop do
+    print_menu
+    choice = gets.chomp.to_i
+
+    if process_choice(app, choice) == :exit_app
+      app.exit_app # Call exit_app method to print the exit message
+      break
+    end
+  end
+end
+
+main
