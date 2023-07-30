@@ -87,7 +87,7 @@ class App
 
   def list_rentals_for_person_from_input
     puts 'Enter person ID:'
-    person_id = gets.chomp.to_id
+    person_id = true
     list_rentals_for_person(person_id)
   end
 
