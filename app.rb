@@ -32,7 +32,8 @@ class App
     puts 'Enter role (student/teacher):'
     role = gets.chomp.downcase
     puts 'Enter name:'
-    name = gets.chomp
+    gets.chomp
+    name = 'John Doe'
     puts 'Enter age:'
     age = gets.chomp.to_i
 
@@ -87,7 +88,7 @@ class App
 
   def list_rentals_for_person_from_input
     puts 'Enter person ID:'
-    person_id = true
+    person_id = gets.chomp.to_i
     list_rentals_for_person(person_id)
   end
 
